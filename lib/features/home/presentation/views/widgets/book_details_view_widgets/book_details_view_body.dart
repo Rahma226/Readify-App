@@ -3,6 +3,7 @@ import 'package:readify/core/utils/assests.dart';
 import 'package:readify/core/utils/style.dart';
 import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/books_action.dart';
 import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/custom_app_bar.dart';
+import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/similar_books_list_view.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/book_rating.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/image_card.dart';
 
@@ -45,9 +46,26 @@ class BookDetailsViewBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
           ),
           const SizedBox(
-            height: 37,
+            height: 32,
           ),
-          BooksAction(),
+          const BooksAction(),
+          const SizedBox(
+            height: 42,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'You can also like',
+              style: Style.textStyle14.copyWith(fontWeight: FontWeight.w700),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          const SimilarBooksListView(),
+          const SizedBox(
+            height: 24,
+          ),
         ],
       ),
     );

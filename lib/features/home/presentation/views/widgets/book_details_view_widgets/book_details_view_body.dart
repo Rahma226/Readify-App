@@ -1,73 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:readify/core/utils/assests.dart';
-import 'package:readify/core/utils/style.dart';
+import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/book_details_view_body_section1.dart';
+import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/book_details_view_body_section2.dart';
 import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/books_action.dart';
 import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/custom_app_bar.dart';
-import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/similar_books_list_view.dart';
-import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/book_rating.dart';
-import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/image_card.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        children: [
-          const CustomAppBarBookDetails(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * .20),
-            child: const ImageCard(image: Asset.image3),
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          const Text(
-            'Kristin Hannah',
-            style: Style.textStyle30,
-          ),
-          const SizedBox(
-            height: 6,
-          ),
-          Opacity(
-            opacity: .7,
-            child: Text(
-              'J.K. Rowling',
-              style: Style.textStyle18.copyWith(fontStyle: FontStyle.italic),
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                const CustomAppBarBookDetails(),
+                const BookDetailsViewBodySection1(),
+                const SizedBox(
+                  height: 32,
+                ),
+                const BooksAction(),
+                const Expanded(
+                  child: SizedBox(
+                    height: 42,
+                  ),
+                ),
+                const BookDetailsViewBodySection2(),
+                const SizedBox(
+                  height: 24,
+                ),
+              ],
             ),
           ),
-          const SizedBox(
-            height: 18,
-          ),
-          const BookRating(
-            mainAxisAlignment: MainAxisAlignment.center,
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          const BooksAction(),
-          const SizedBox(
-            height: 42,
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'You can also like',
-              style: Style.textStyle14.copyWith(fontWeight: FontWeight.w700),
-            ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const SimilarBooksListView(),
-          const SizedBox(
-            height: 24,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

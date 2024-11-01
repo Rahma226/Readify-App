@@ -19,8 +19,8 @@ abstract class Style {
     fontWeight: FontWeight.w500,
   );
   static const textStyle30 = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.normal,
+    fontSize: 32,
+    fontWeight: FontWeight.w500,
     fontFamily: KSecondryFontFamily
   );
 }

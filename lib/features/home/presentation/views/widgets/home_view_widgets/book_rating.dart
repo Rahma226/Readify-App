@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:readify/constants.dart';
 import 'package:readify/core/utils/style.dart';
 
 class BookRating extends StatelessWidget {

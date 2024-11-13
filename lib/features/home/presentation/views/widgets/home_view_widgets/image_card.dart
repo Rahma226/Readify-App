@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 class ImageCard extends StatelessWidget {
-  const ImageCard({super.key, required this.image});
+  const ImageCard({super.key, required this.imageURL});
 
-  final String image;
+  final String imageURL;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,9 @@ class ImageCard extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover, 
-              image: AssetImage(image),
+              image: NetworkImage(
+                imageURL,
+              ),
             ),
           ),
         ),

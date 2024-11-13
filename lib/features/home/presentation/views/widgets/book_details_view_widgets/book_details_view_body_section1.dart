@@ -15,7 +15,10 @@ class BookDetailsViewBodySection1 extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .20),
-          child: const ImageCard(image: Asset.image3),
+          child: const ImageCard(
+            imageURL:
+                'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixlr.com%2Fimage-generator%2F&psig=AOvVaw311Y_-xbFZot-iWsTcnC4V&ust=1731587461246000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCLCNhJOo2YkDFQAAAAAdAAAAABAG',
+          ),
         ),
         const SizedBox(
           height: 32,

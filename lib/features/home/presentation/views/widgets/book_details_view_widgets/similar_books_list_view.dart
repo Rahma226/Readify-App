@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:readify/core/utils/list_of_images.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/image_card.dart';
 
 class SimilarBooksListView extends StatelessWidget {
@@ -12,12 +11,11 @@ class SimilarBooksListView extends StatelessWidget {
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: ListOfImages.imagesList.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: 5),
             child: ImageCard(
-              image: ListOfImages.imagesList[index],
+              imageURL: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixlr.com%2Fimage-generator%2F&psig=AOvVaw311Y_-xbFZot-iWsTcnC4V&ust=1731587461246000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCLCNhJOo2YkDFQAAAAAdAAAAABAG',
             ),
           );
         },

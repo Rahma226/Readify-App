@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:readify/core/utils/assests.dart';
 import 'package:readify/core/utils/style.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/book_rating.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/image_card.dart';

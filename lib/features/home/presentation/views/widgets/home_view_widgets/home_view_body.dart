@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:readify/core/utils/style.dart';
-import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/best_seller_list_view.dart';
+import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/newest_list_view.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/books_list_view.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/custom_app_bar.dart';
 
@@ -29,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: Style.textStyle18.copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
@@ -39,7 +39,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-       const BestSellerListView(),
+       const NewestListView(),
       ],
     );
   }

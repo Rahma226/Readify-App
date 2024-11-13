@@ -6,8 +6,8 @@ import 'package:readify/core/utils/assests.dart';
 import 'package:readify/core/utils/style.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/book_rating.dart';
 
-class BestSellerItems extends StatelessWidget {
-  const BestSellerItems({super.key});
+class NewestItems extends StatelessWidget {
+  const NewestItems({super.key});
 
   @override
   Widget build(BuildContext context) {

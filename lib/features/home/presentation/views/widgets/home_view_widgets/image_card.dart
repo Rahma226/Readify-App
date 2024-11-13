@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:readify/core/widgets/custom_loading_indicator.dart';
 
 class ImageCard extends StatelessWidget {
   const ImageCard({super.key, required this.imageURL});

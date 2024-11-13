@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:readify/constants.dart';
 import 'package:readify/core/utils/app_router.dart';
-import 'package:readify/core/utils/assests.dart';
 import 'package:readify/core/utils/style.dart';
+import 'package:readify/features/home/data/models/book_model/book_model.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/book_rating.dart';
+import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/image_card.dart';
 
 class NewestItems extends StatelessWidget {
-  const NewestItems({super.key});
+  const NewestItems({
+    super.key,
+    required this.bookModel,
+  });
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +24,7 @@ class NewestItems extends StatelessWidget {
         height: 124,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.7 / 4,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Container(
-                  width: 150,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(Asset.image1),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            ImageCard(imageURL: bookModel.volumeInfo.imageLinks.thumbnail),
             const SizedBox(
               width: 30,
             ),
@@ -44,7 +35,7 @@ class NewestItems extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      'Harry Potter and the Prisone of Azkaba',
+                      bookModel.volumeInfo.title!,
                       style: Style.textStyle20.copyWith(
                           fontFamily: KSecondryFontFamily,
                           fontWeight: FontWeight.w500),
@@ -55,8 +46,8 @@ class NewestItems extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
-                  const Text(
-                    'J.K. Rowling',
+                  Text(
+                    bookModel.volumeInfo.authors![0],
                     style: Style.textStyle14,
                   ),
                   const SizedBox(
@@ -65,12 +56,15 @@ class NewestItems extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '19.99 €',
+                        'Free',
                         style: Style.textStyle20
-                            .copyWith(fontWeight: FontWeight.bold),
+                            .copyWith(fontWeight: FontWeight.bold , color: Kcolor1),
                       ),
                       const Spacer(),
-                      const BookRating(),
+                      BookRating(
+                        rating: bookModel.volumeInfo.averageRating ?? 0,
+                        count: bookModel.volumeInfo.ratingsCount ?? 0,
+                      ),
                     ],
                   )
                 ],

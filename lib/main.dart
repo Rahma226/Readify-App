@@ -27,7 +27,7 @@ class Readify extends StatelessWidget {
         BlocProvider(
           create: (context) => NewestBooksCubit(
             getIt.get<HomeRepoImplementation>(),
-          ),
+          ) ..fetchNewestdBooks(),
         ),
       ],
       child: MaterialApp.router(

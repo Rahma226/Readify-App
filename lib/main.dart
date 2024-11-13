@@ -8,6 +8,7 @@ import 'package:readify/features/home/presentation/manager/featured%20books%20cu
 import 'package:readify/features/home/presentation/manager/newest%20books/newest_books_cubit.dart';
 
 void main() {
+  setUp();
   runApp(const Readify());
 }
 

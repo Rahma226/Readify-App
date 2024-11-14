@@ -18,7 +18,7 @@ class NewestItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.KbookDetailsView);
+        GoRouter.of(context).push(AppRouter.KbookDetailsView , extra: bookModel);
       },
       child: SizedBox(
         height: 124,

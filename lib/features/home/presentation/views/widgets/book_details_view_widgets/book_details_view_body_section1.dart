@@ -1,11 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:readify/core/utils/style.dart';
+import 'package:readify/features/home/data/models/book_model/book_model.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/book_rating.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/image_card.dart';
 
 class BookDetailsViewBodySection1 extends StatelessWidget {
-  const BookDetailsViewBodySection1({super.key});
-
+  const BookDetailsViewBodySection1({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -14,16 +15,15 @@ class BookDetailsViewBodySection1 extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .20),
-          child: const ImageCard(
-            imageURL:
-                'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixlr.com%2Fimage-generator%2F&psig=AOvVaw311Y_-xbFZot-iWsTcnC4V&ust=1731587461246000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCLCNhJOo2YkDFQAAAAAdAAAAABAG',
+          child: ImageCard(
+            imageURL: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),
         const SizedBox(
           height: 32,
         ),
-        const Text(
-          'Kristin Hannah',
+        Text(
+          bookModel.volumeInfo.title!,
           style: Style.textStyle30,
         ),
         const SizedBox(
@@ -32,16 +32,17 @@ class BookDetailsViewBodySection1 extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            'J.K. Rowling',
+            textAlign: TextAlign.center,
+            bookModel.volumeInfo.authors![0],
             style: Style.textStyle18.copyWith(fontStyle: FontStyle.italic),
           ),
         ),
         const SizedBox(
           height: 18,
         ),
-        const BookRating(
-          rating: 4,
-          count: 250,
+        BookRating(
+          rating: bookModel.volumeInfo.averageRating ?? 0,
+          count: bookModel.volumeInfo.ratingsCount ?? 0,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
       ],

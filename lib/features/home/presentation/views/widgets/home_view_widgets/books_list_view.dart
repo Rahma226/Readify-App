@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:readify/core/utils/app_router.dart';
 import 'package:readify/core/widgets/custom_error_widget.dart';
 import 'package:readify/core/widgets/custom_loading_indicator.dart';
 import 'package:readify/features/home/presentation/manager/featured%20books%20cubit/featured_books_cubit.dart';
@@ -23,8 +25,14 @@ class BooksListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: ImageCard(
-                  imageURL: state.books[index].volumeInfo.imageLinks?.thumbnail ?? '',
+                child: GestureDetector(
+                  onTap: () => GoRouter.of(context).push(
+                      extra: state.books[index], AppRouter.KbookDetailsView),
+                  child: ImageCard(
+                    imageURL:
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            '',
+                  ),
                 ),
               );
             },

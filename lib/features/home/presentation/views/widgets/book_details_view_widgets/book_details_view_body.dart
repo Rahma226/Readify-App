@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:readify/features/home/data/models/book_model/book_model.dart';
 import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/book_details_view_body_section1.dart';
 import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/book_details_view_body_section2.dart';
 import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/books_action.dart';
 import 'package:readify/features/home/presentation/views/widgets/book_details_view_widgets/custom_app_bar.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  const BookDetailsViewBody({super.key, required this.bookModel});
+ final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class BookDetailsViewBody extends StatelessWidget {
             child: Column(
               children: [
                 const CustomAppBarBookDetails(),
-                const BookDetailsViewBodySection1(),
+                 BookDetailsViewBodySection1(bookModel: bookModel,),
                 const SizedBox(
                   height: 32,
                 ),

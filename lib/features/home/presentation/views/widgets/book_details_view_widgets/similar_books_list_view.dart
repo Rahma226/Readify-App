@@ -18,12 +18,14 @@ class SimilarBooksListView extends StatelessWidget {
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(right: 5),
+                  padding: const EdgeInsets.only(right: 8),
                   child: ImageCard(
                     imageURL:
-                        'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixlr.com%2Fimage-generator%2F&psig=AOvVaw311Y_-xbFZot-iWsTcnC4V&ust=1731587461246000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCLCNhJOo2YkDFQAAAAAdAAAAABAG',
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            '',
                   ),
                 );
               },

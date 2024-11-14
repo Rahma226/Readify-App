@@ -12,6 +12,7 @@ class BookDetailsViewBodySection1 extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .20),
@@ -25,6 +26,7 @@ class BookDetailsViewBodySection1 extends StatelessWidget {
         Text(
           bookModel.volumeInfo.title!,
           style: Style.textStyle30,
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 6,

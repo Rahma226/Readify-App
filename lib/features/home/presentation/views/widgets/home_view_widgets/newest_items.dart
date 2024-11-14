@@ -24,7 +24,7 @@ class NewestItems extends StatelessWidget {
         height: 124,
         child: Row(
           children: [
-            ImageCard(imageURL: bookModel.volumeInfo.imageLinks.thumbnail),
+            ImageCard(imageURL: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
             const SizedBox(
               width: 30,
             ),

@@ -31,7 +31,7 @@ class NewestListView extends StatelessWidget {
           );
         } else {
           return SliverToBoxAdapter(
-            child: Center(child: CustomLoadingIndicator()),
+            child: CustomLoadingIndicator(),
           );
         }
       },

@@ -10,7 +10,7 @@ class SearchBooksCubit extends Cubit<SearchBooksState> {
   SearchBooksCubit(this.homeRepo) : super(SearchBooksInitial());
   final HomeRepo homeRepo;
 
-  Future<void> fetchNewestdBooks() async {
+  Future<void> fetchBooksByName(String bookName) async {
     emit(SearchBooksLoading());
     var result = await homeRepo.fetchFeaturedBooks();
     result.fold(

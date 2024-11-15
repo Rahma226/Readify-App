@@ -6,6 +6,7 @@ import 'package:readify/core/utils/service_locator.dart';
 import 'package:readify/features/home/data/repos/home_repo_implementation.dart';
 import 'package:readify/features/home/presentation/manager/featured%20books%20cubit/featured_books_cubit.dart';
 import 'package:readify/features/home/presentation/manager/newest%20books/newest_books_cubit.dart';
+import 'package:readify/features/search/presentation/manager/search%20books%20cubit/search_books_cubit.dart';
 import 'package:readify/simple_bloc_observer.dart';
 
 void main() {

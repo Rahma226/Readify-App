@@ -12,7 +12,7 @@ class SearchBooksCubit extends Cubit<SearchBooksState> {
 
   Future<void> fetchBooksByName(String bookName) async {
     emit(SearchBooksLoading());
-    var result = await homeRepo.fetchFeaturedBooks();
+    var result = await homeRepo.fetchBooksByName(bookName: bookName);
     result.fold(
       (failure) {
         emit(SearchBooksFailure(failure.errMessage));

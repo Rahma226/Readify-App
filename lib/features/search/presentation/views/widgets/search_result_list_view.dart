@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:readify/core/widgets/custom_loading_indicator.dart';
 import 'package:readify/features/home/presentation/views/widgets/home_view_widgets/newest_items.dart';
 import 'package:readify/features/search/presentation/manager/search%20books%20cubit/search_books_cubit.dart';
 import '../../../../../core/utils/style.dart';
@@ -13,6 +14,11 @@ class SearchResultListView extends StatelessWidget {
     return BlocBuilder<SearchBooksCubit, SearchBooksState>(
       builder: (context, state) {
         if (state is SearchBooksSuccess) {
+          if (state.books.isEmpty) {
+            return const Center(
+              child: Text('No results found.', style: Style.textStyle16),
+            );
+          }
           return ListView.builder(
             padding: EdgeInsets.zero,
             itemCount: state.books.length,
@@ -25,6 +31,8 @@ class SearchResultListView extends StatelessWidget {
           );
         } else if (state is SearchBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
+        } else if (state is SearchBooksLoading) {
+          return CustomLoadingIndicator();
         } else {
           return Center(
             child: Text(

@@ -18,13 +18,14 @@ class NewestItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.KbookDetailsView , extra: bookModel);
+        GoRouter.of(context).push(AppRouter.KbookDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 124,
         child: Row(
           children: [
-            ImageCard(imageURL: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
+            ImageCard(
+                imageURL: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
             const SizedBox(
               width: 30,
             ),
@@ -47,7 +48,7 @@ class NewestItems extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0] ?? 'no auther',
                     style: Style.textStyle14,
                   ),
                   const SizedBox(
@@ -57,8 +58,8 @@ class NewestItems extends StatelessWidget {
                     children: [
                       Text(
                         'Free',
-                        style: Style.textStyle20
-                            .copyWith(fontWeight: FontWeight.bold , color: Kcolor1),
+                        style: Style.textStyle20.copyWith(
+                            fontWeight: FontWeight.bold, color: Kcolor1),
                       ),
                       const Spacer(),
                       BookRating(

@@ -7,12 +7,13 @@ import '../../manager/search books cubit/search_books_cubit.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({super.key});
-
   @override
   Widget build(BuildContext context) {
     return TextField(
       onSubmitted: (bookName) {
-        context.read<SearchBooksCubit>().fetchBooksByName(bookName);
+        if (bookName.isNotEmpty) {
+          context.read<SearchBooksCubit>().fetchBooksByName(bookName);
+        }
       },
       style: TextStyle(color: Colors.white),
       cursorColor: Colors.white,
